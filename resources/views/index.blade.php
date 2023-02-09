@@ -44,22 +44,7 @@
                         <div class="swiper-wrapper h-full">
                             <div class="swiper-slide h-full">
                                 <div class="image w-full h-full">
-                                    <img src="{{ asset('images/other/image-1.jpg') }}" alt="" class="w-full h-full object-fit object-cover">
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-full">
-                                <div class="image w-full h-full">
-                                    <img src="{{ asset('images/other/image-2.jpg') }}" alt="" class="w-full h-full object-fit object-cover">
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-full">
-                                <div class="image w-full h-full">
-                                    <img src="{{ asset('images/other/image-3.jpg') }}" alt="" class="w-full h-full object-fit object-cover">
-                                </div>
-                            </div>
-                            <div class="swiper-slide h-full">
-                                <div class="image w-full h-full">
-                                    <img src="{{ asset('images/other/image-4.jpg') }}" alt="" class="w-full h-full object-fit object-cover">
+                                    <img src="{{ asset('images/other/image-1.webp') }}" alt="Deprem Yardım" class="w-full h-full object-fit object-cover">
                                 </div>
                             </div>
                         </div>
