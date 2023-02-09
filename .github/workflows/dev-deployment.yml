@@ -1,0 +1,29 @@
+name: Development Deployment
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull deployer config from secrets
+        run: echo '${{ secrets.DEPLOYER_CONFIG }}' > $GITHUB_WORKSPACE/deploy.yaml
+
+      - name: Install Packages
+        run: composer install --ignore-platform-reqs --no-interaction
+
+      - name: Deploy
+        uses: deployphp/action@v1
+        with:
+          private-key: ${{ secrets.DEV_SSH_PRIVATE_KEY }}
+          dep: deploy stage
+          verbosity: ''
+
+      - name: Remove deployer config
+        run: rm -f $GITHUB_WORKSPACE/deploy.yaml

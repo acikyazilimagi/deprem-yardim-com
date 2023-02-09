@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $pageViews = Cache::remember('cf_page_views', now()->addHour(), fn() => $this->getCloudflareAnalytics());
+        $pageViews = rescue(Cache::remember('cf_page_views', now()->addHour(), fn() => $this->getCloudflareAnalytics()), 0);
         $injuredCities = Injured::select('city', \DB::raw('count(*) as total'))->groupBy('city')->get();
         return view('index', compact('injuredCities', 'pageViews'));
     }
@@ -24,7 +24,7 @@ class HomeController extends Controller
         $req = $client->post('https://api.cloudflare.com/client/v4/graphql', [
             'body' => str_replace('__DATE__', now()->subDay()->format('Y-m-d'), $body),
             'headers' => [
-                'Authorization' => 'Bearer '.env('CF_API_KEY'),
+                'Authorization' => 'Bearer '.config('services.cloudflare.key'),
                 'Content-Type' => 'application/json'
             ]
         ]);
