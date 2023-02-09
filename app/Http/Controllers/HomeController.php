@@ -13,7 +13,7 @@ class HomeController extends Controller
         $pageViews = rescue(fn() => Cache::remember('cf_page_views', now()->addHour(), fn() => $this->getCloudflareAnalytics()), 0) ?? 0;
         $active_cities = Injured::getActiveCities();
         $injuredCities = Injured::select('city', \DB::raw('count(*) as total'))
-            ->whereIn('city', $active_cities)
+            ->activeCities()
             ->groupBy('city')
             ->orderBy('total', 'desc')
             ->get();
