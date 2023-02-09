@@ -1,0 +1,372 @@
+/* [------------------] Plugins [------------------] */
+@import "../../vendor/filament/forms/dist/module.esm.css";
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+@import "../../node_modules/@fancyapps/ui/dist/fancybox.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+*::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    @apply bg-primary-300;
+}
+
+*::-webkit-scrollbar-track,
+.scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(black, 0.1);
+}
+
+.scrollbar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: -10px;
+}
+
+.fancybox__slide {
+    padding: 20px;
+}
+
+#popup-help-number .carousel__button {
+    display: none;
+}
+
+.filament-forms-field-wrapper-error-message {
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+    bottom: -11px;
+    background: white;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid rgb(225 29 72);
+}
+
+.main-table-content {
+    .filament-tables-container {
+        background: transparent;
+        border: transparent;
+
+        .filament-tables-header-container {
+            .filament-tables-header-toolbar {
+                .filament-tables-search-container {
+                    .filament-tables-search-input {
+                        label {
+                        }
+
+                        .group {
+                            transition: 0.5s;
+
+                            &:focus,
+                            &:focus-within {
+                                input {
+                                    outline: none;
+                                    box-shadow: none !important;
+                                }
+
+                                span {
+                                    svg {
+                                        stroke: white;
+                                    }
+                                }
+                            }
+
+                            span {
+                                opacity: 1;
+                                visibility: visible;
+
+                                svg {
+                                    transition: 0.5 git s;
+                                }
+                            }
+
+                            input {
+                                background: transparent;
+                                border: 1px solid white;
+                                transition: 0.5s;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+
+                .filament-dropdown {
+                    .filament-dropdown-trigger {
+                        button {
+                            transition: 0.5s;
+
+                            svg {
+                                fill: white;
+                            }
+
+                            &:hover {
+                                @apply bg-primary-300;
+                            }
+
+                            .filament-icon-button-indicator {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .filament-tables-filter-indicators {
+            > div {
+                span {
+                }
+
+                .filament-tables-filter-indicator {
+                    color: white;
+
+                    button {
+                        transition: 0.5s;
+
+                        svg {
+                            fill: white;
+                        }
+                    }
+                }
+
+                button {
+                    transition: 0.5s;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
+        }
+
+        .filament-tables-table-container {
+            .divide-y {
+                > div {
+                    > div {
+                        > div {
+                            button {
+                                &:focus {
+                                    outline: unset !important;
+                                }
+
+                                svg {
+                                    fill: white;
+                                    width: 12px;
+                                    height: 22px;
+                                }
+                            }
+
+                            .filament-tables-column-wrapper {
+                                .filament-tables-text-column {
+                                    span {
+                                        color: white;
+                                    }
+                                }
+                            }
+
+                            .bg-gray-100 {
+                                @apply bg-primary-600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .filament-tables-pagination-container {
+            nav {
+                .hidden {
+                    grid-template-columns: minmax(0, 1fr);
+
+                    label {
+                        color: white;
+                    }
+
+                    > * {
+                        margin-top: 20px;
+                        justify-content: flex-start;
+
+                        &:first-child {
+                            margin-top: 0;
+                            .font-medium {
+                                color: #fff;
+                            }
+                            > div {
+                                padding: 0 !important;
+                            }
+                        }
+                    }
+
+                    ol {
+                        li {
+                            .filament-tables-pagination-item {
+                                box-shadow: unset !important;
+                                color: white;
+
+                                &:hover {
+                                    @apply bg-primary-300;
+                                }
+                                &:focus {
+                                    outline: none !important;
+                                    box-shadow: none !important;
+                                }
+
+                                &.ring-2 {
+                                    @apply bg-primary-300;
+                                    outline: none !important;
+                                    box-shadow: none !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #tableRecordsPerPageSelect {
+                + label {
+                    color: white;
+                }
+            }
+
+            button {
+                transition: 0.5s;
+            }
+
+            .filament-icon-button-icon {
+                stroke: white;
+            }
+        }
+
+        .filament-tables-empty-state {
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 12px;
+            svg {
+                path {
+                    stroke: #fff;
+                }
+            }
+            .max-w-md {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.injured-list {
+    .main-table-content {
+        .filament-tables-container {
+            .filament-tables-pagination-container {
+                nav {
+                    .hidden {
+                        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+                        label {
+                            color: white;
+                        }
+
+                        > * {
+                            margin-top: 0;
+
+                            &:first-child {
+                                margin-top: 0;
+                                .font-medium {
+                                    color: #fff;
+                                }
+                                > div {
+                                    padding: 0 !important;
+                                }
+                            }
+                            &:nth-child(2) {
+                                justify-content: center;
+                            }
+                            &:last-child {
+                                justify-content: flex-end;
+                            }
+                        }
+
+                        ol {
+                            li {
+                                .filament-tables-pagination-item {
+                                    box-shadow: unset !important;
+                                    color: white;
+
+                                    &:hover {
+                                        @apply bg-primary-300;
+                                    }
+
+                                    &.ring-2 {
+                                        @apply bg-primary-300;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.choices__inner {
+    @apply flex items-center text-primary-500 h-12 text-primary-500 border-gray-300 hover:border-primary-500 rounded-full ring-offset-0 hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 focus:ring-transparent focus:border;
+}
+
+.choices__placeholder.choices__item {
+    @apply text-primary-500 opacity-100;
+}
+
+.choices__list.choices__list--dropdown {
+    @apply text-primary-500 text-primary-500 border-gray-300 hover:border-primary-500 rounded-2xl ring-offset-0 hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 focus:ring-transparent;
+}
+
+.filament-forms-field-wrapper {
+    position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+    .choices__inner {
+        @apply h-[60px];
+    }
+    #popup-help-number {
+        height: 100%;
+    }
+    #popup-help-number .carousel__button {
+        display: flex;
+        bottom: 0;
+        top: unset;
+        right: 0;
+        left: unset;
+        @apply bg-secondary-400;
+        width: 85px;
+        height: 85px;
+        transition: 0.5s;
+        box-shadow: 0 0 10px 0 rgb(255 100 100);
+        svg {
+            transition: 0.5s;
+        }
+        &:hover,
+        &:focus {
+            @apply bg-secondary-600;
+            outline: none !important;
+            box-shadow: none !important;
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
