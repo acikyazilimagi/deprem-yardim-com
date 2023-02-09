@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Injured extends Model
 {
     use HasFactory;
+
+    public static function getActiveCities() {
+        return [
+            "Adana",
+            "Adıyaman",
+            "Diyarbakır",
+            "Gaziantep",
+            "Hatay",
+            "Kahramanmaraş",
+            "Kilis",
+            "Malatya",
+            "Osmaniye",
+            "Şanlıurfa"
+        ];
+    }
 }
