@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading(! $this->app->isProduction());
         Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
         Model::unguard();
+
+        config()->set('seotools.opengraph.defaults.images', [
+            asset('images/other/og_image.jpg')
+        ]);
     }
 }
