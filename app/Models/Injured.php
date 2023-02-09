@@ -18,14 +18,24 @@ class Injured extends Model
         return [
             "Adana",
             "Adıyaman",
+            "Batman",
+            "Bingöl",
+            "Bitlis",
             "Diyarbakır",
+            "Elazığ",
             "Gaziantep",
+            "Hakkari",
             "Hatay",
             "Kahramanmaraş",
             "Kilis",
             "Malatya",
+            "Mardin",
+            "Mersin",
             "Osmaniye",
-            "Şanlıurfa"
+            "Şanlıurfa",
+            "Siirt",
+            "Şırnak",
+            "Van"
         ];
     }
 }
