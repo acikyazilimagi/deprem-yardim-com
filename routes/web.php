@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
-Route::get('/injured', function () {
+Route::get('/yardim-isteyenler', function () {
     return view('injured');
 });
+
+Route::redirect('/injured', '/yardim-isteyenler');
+Route::redirect('/help/datatable', '/yardim-isteyenler');
