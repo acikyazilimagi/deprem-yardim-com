@@ -37,6 +37,12 @@
                                 <div class="text group-hover/link:text-red-500 duration-500 font-normal">AfetHarita.com</div>
                             </a>
                         </li>
+                        <div class="split w-[1px] h-[20px] flex bg-white"></div>
+                        <li class="flex items-center">
+                            <a href="https://yakinimibul.net/" target="_blank" class="group/link flex items-center space-x-3">
+                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal">yakinimibul.com</div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
