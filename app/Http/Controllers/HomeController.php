@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Injured;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function __invoke()
     {
-        $pageViews = rescue(fn() => Cache::remember('cf_page_views', now()->addHour(), fn() => $this->getCloudflareAnalytics()), 0) ?? 0;
-        $active_cities = Injured::getActiveCities();
-        $injuredCities = Injured::select('city', \DB::raw('count(*) as total'))
+        $pageViews = rescue(fn () => Cache::remember('cf_page_views', now()->addHour(), fn () => $this->getCloudflareAnalytics()), 0) ?? 0;
+
+        $injuredCities = Injured::select('city', DB::raw('count(*) as total'))
             ->activeCities()
             ->groupBy('city')
             ->orderBy('total', 'desc')
             ->get();
+
         return view('index', compact('injuredCities', 'pageViews'));
     }
 
@@ -30,13 +32,13 @@ class HomeController extends Controller
             'body' => str_replace('__DATE__', now()->subDay()->format('Y-m-d'), $body),
             'headers' => [
                 'Authorization' => 'Bearer '.config('services.cloudflare.key'),
-                'Content-Type' => 'application/json'
-            ]
+                'Content-Type' => 'application/json',
+            ],
         ]);
 
         $res = json_decode($req->getBody()->getContents());
 
-        if (!data_get($res, 'errors') == null) {
+        if (! data_get($res, 'errors') == null) {
             return 0;
         }
 

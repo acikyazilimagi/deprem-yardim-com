@@ -32,6 +32,16 @@ class InjuredTable extends Component implements HasTable
         return Injured::query();
     }
 
+    protected function getDefaultTableSortColumn(): ?string
+    {
+        return 'id';
+    }
+
+    protected function getDefaultTableSortDirection(): ?string
+    {
+        return 'desc';
+    }
+
     protected function getTableColumns(): array
     {
         return [
