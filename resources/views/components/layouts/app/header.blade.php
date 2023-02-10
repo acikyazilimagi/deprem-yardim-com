@@ -25,7 +25,7 @@
                                 <div class="image h-8">
                                     <img src="{{ asset('images/brand/deprem-yardim.png') }}" alt="" class="w-full h-full object-contain object-center">
                                 </div>
-                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal">IT Deprem<br>Yardım Discord</div>
+                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal text-sm">IT Deprem<br>Yardım Discord</div>
                             </a>
                         </li>
                         <div class="split w-[1px] h-[20px] flex bg-white"></div>
@@ -34,7 +34,16 @@
                                 <div class="image h-8">
                                     <img src="{{ asset('images/brand/afet-yardim.png') }}" alt="" class="w-full h-full object-contain object-center">
                                 </div>
-                                <div class="text group-hover/link:text-red-500 duration-500 font-normal">AfetHarita.com</div>
+                                <div class="text group-hover/link:text-red-500 duration-500 font-normal text-sm">AfetHarita.com</div>
+                            </a>
+                        </li>
+                        <div class="split w-[1px] h-[20px] flex bg-white"></div>
+                        <li class="flex items-center">
+                            <a href="https://yakinimibul.net/" target="_blank" class="group/link flex items-center space-x-3">
+                                <div class="image h-8">
+                                    <img src="{{ asset('images/brand/yakinimibul.png') }}" alt="" class="w-full h-full object-contain object-center">
+                                </div>
+                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal text-sm">yakinimibul.com</div>
                             </a>
                         </li>
                         <div class="split w-[1px] h-[20px] flex bg-white"></div>
