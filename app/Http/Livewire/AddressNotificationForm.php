@@ -94,10 +94,12 @@ class AddressNotificationForm extends Component implements HasForms
                         ->columnSpanFull(),
                     Checkbox::make('gdpr')
                         ->columnSpanFull()
+                        ->accepted()
                         ->required()
                         ->label(fn() => new HtmlString('<a href="#popup-gdpr" data-fancybox class="link cursor-pointer text-[14px] leading-tight text-primary-500 font-semibold hover:text-primary-800 duration-500">Aydınlatma Metni</a>\'ni okudum ve kabul ediyorum.')),
                     Checkbox::make('gdpr2')
                         ->columnSpanFull()
+                        ->accepted()
                         ->required()
                         ->extraAttributes(['class' => 'text-red-500 focus:border-red-500 ring-red-500 focus:ring-red-500'])
                         ->label(
@@ -128,6 +130,7 @@ class AddressNotificationForm extends Component implements HasForms
                 'message' => 'Kayıt eklemek için bir süre bekleyiniz',
                 'type' => 'error',
             ]);
+            return;
         }
 
         $insert = Injured::create([
