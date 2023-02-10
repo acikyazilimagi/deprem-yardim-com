@@ -1,4 +1,3 @@
-import './bootstrap';
 import './utils';
 import './carousel';
 import './custom';
