@@ -50,7 +50,7 @@ class AddressNotificationForm extends Component implements HasForms
                         ->searchable()
                         ->required()
                         ->lazy()
-                        ->options(fn() => City::whereIn('id', [1, 2, 14, 17, 18, 26, 29, 33, 36, 37, 42, 51, 55, 57, 58, 64, 71, 68, 72, 78])->pluck('name', 'id')),
+                        ->options(fn() => City::activeCities()->pluck('name', 'id')),
                     Select::make('district')
                         ->placeholder('İlçe Seçiniz')
                         ->disableLabel()
