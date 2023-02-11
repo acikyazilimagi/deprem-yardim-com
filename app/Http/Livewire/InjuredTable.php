@@ -94,7 +94,7 @@ class InjuredTable extends Component implements HasTable
                     Tables\Columns\TextColumn::make('maps_link')
                         ->label('Harita Linki'),
                     Tables\Columns\TextColumn::make('created_at')
-                        ->formatStateUsing(fn($state) => "Bildirilme Tarihi: {$state->format('d.m.Y H:i')}")
+                        ->formatStateUsing(fn($state) => "Bildirilme Tarihi: {$state?->format('d.m.Y H:i')}")
                 ]),
             ])->collapsible(),
         ];
