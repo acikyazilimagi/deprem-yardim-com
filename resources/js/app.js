@@ -8,13 +8,15 @@ import Collapse from '@alpinejs/collapse'
 import Focus from '@alpinejs/focus'
 import FormsAlpinePlugin from '../../vendor/filament/forms/dist/module.esm'
 import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/module.esm'
-import Sweetalert from "./sweetalert";
+import Sweetalert from "./components/sweetalert";
+import Map from "./components/map";
 
 Alpine.plugin(Focus)
 Alpine.plugin(FormsAlpinePlugin)
 Alpine.plugin(NotificationsAlpinePlugin)
 Alpine.plugin(Collapse)
 Alpine.plugin(Sweetalert)
+Alpine.plugin(Map)
 
 window.Alpine = Alpine
 

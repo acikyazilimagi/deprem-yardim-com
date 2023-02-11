@@ -506,6 +506,16 @@ laravel-vite-plugin@^0.7.2:
     picocolors "^1.0.0"
     vite-plugin-full-reload "^1.0.5"
 
+leaflet.markercluster@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/leaflet.markercluster/-/leaflet.markercluster-1.5.3.tgz#9cdb52a4eab92671832e1ef9899669e80efc4056"
+  integrity sha512-vPTw/Bndq7eQHjLBVlWpnGeLa3t+3zGiuM7fJwCkiMFq+nmRuG3RI3f7f4N4TDX7T4NpbAXpR2+NTRSEGfCSeA==
+
+leaflet@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.3.tgz#52ec436954964e2d3d39e0d433da4b2500d74414"
+  integrity sha512-iB2cR9vAkDOu5l3HAay2obcUHZ7xwUBBjph8+PGtmW/2lYhbLizWtG7nTeYht36WfOslixQF9D/uSIzhZgGMfQ==
+
 lilconfig@^2.0.5, lilconfig@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.6.tgz#32a384558bd58af3d4c6e077dd1ad1d397bc69d4"

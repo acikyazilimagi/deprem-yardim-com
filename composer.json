@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "artesaos/seotools": "^1.0",
+        "aws/aws-sdk-php": "^3.258",
         "coduo/php-humanizer": "^4.0",
         "danharrin/livewire-rate-limiting": "^1.0",
         "filament/forms": "^2.16",

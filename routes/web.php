@@ -20,5 +20,9 @@ Route::get('/yardim-isteyenler', function () {
     return view('injured');
 });
 
+Route::get('/harita', function () {
+    return view('map');
+});
+
 Route::redirect('/injured', '/yardim-isteyenler');
 Route::redirect('/help/datatable', '/yardim-isteyenler');

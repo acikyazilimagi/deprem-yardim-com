@@ -9,6 +9,11 @@ class Injured extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'coordinates' => 'array',
+        'geocode_data' => 'array',
+    ];
+
     public function scopeActiveCities($query)
     {
         return $query->whereIn('city', self::getActiveCities());

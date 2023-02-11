@@ -33,6 +33,13 @@ return [
 
     'cloudflare' => [
         'key' => env('CF_API_KEY')
+    ],
+
+    'aws-location' => [
+        'key' => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
+        'region' => env('AWS_DEFAULT_REGION', 'eu-central-1'),
+        'version' => env('AWS_LOCATION_SERVICE_VERSION', 'latest')
     ]
 
 ];
