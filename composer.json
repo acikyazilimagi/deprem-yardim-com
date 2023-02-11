@@ -9,6 +9,7 @@
         "artesaos/seotools": "^1.0",
         "coduo/php-humanizer": "^4.0",
         "danharrin/livewire-rate-limiting": "^1.0",
+        "doctrine/dbal": "^3.6",
         "filament/forms": "^2.16",
         "filament/tables": "^2.16",
         "guzzlehttp/guzzle": "^7.2",
