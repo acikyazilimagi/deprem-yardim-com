@@ -64,6 +64,9 @@
                                     <div class="name text-[18px] leading-tight text-secondary-400">
                                         {{ $injured->name }}
                                     </div>
+                                    <div class="name text-[18px] leading-tight text-secondary-400">
+                                        {{ $injured->created_at->format('d.m.Y H:i') }}
+                                    </div>
                                 </div>
                             </div>
                         </div>

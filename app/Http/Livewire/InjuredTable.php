@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Injured;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -61,6 +62,10 @@ class InjuredTable extends Component implements HasTable
                     ->label('Ad Soyad')
                     ->searchable()
                     ->hiddenFrom('xl'),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Bildirilme Tarihi')
+                    ->dateTime('d.m.Y H:i')
             ]),
             Tables\Columns\Layout\Panel::make([
                 Tables\Columns\Layout\Stack::make([
@@ -88,6 +93,9 @@ class InjuredTable extends Component implements HasTable
                         ->searchable(),
                     Tables\Columns\TextColumn::make('maps_link')
                         ->label('Harita Linki'),
+                    Tables\Columns\TextColumn::make('created_at')
+                        ->dateTime('d.m.Y H:i')
+                        ->formatStateUsing(fn($state) => "Bildirilme Tarihi: {$state}")
                 ]),
             ])->collapsible(),
         ];
@@ -125,6 +133,24 @@ class InjuredTable extends Component implements HasTable
                             fn($query) => $query->where('street', data_get($data, 'street'))
                         );
                 }),
+            Tables\Filters\Filter::make('dates')
+                ->form([
+                    DateTimePicker::make('start_date')
+                        ->label('Başlangıç Tarihi'),
+                    DateTimePicker::make('end_date')
+                        ->label('Bitiş Tarihi'),
+                ])
+                ->query(function ($query, $data) {
+                    $query
+                        ->when(
+                            filled(data_get($data, 'start_date')),
+                            fn($query) => $query->where('created_at', '>=', data_get($data, 'start_date'))
+                        )
+                        ->when(
+                            filled(data_get($data, 'end_date')),
+                            fn($query) => $query->where('created_at', '<=', data_get($data, 'end_date'))
+                        );
+                })
         ];
     }
 
