@@ -46,6 +46,7 @@ class AddressNotificationForm extends Component implements HasForms
                 ->schema([
                     Select::make('city')
                         ->placeholder('Şehir Seçiniz')
+                        ->disableLabel()
                         ->searchable()
                         ->required()
                         ->reactive()
