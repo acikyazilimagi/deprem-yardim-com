@@ -46,23 +46,33 @@ class AddressNotificationForm extends Component implements HasForms
                 ->schema([
                     Select::make('city')
                         ->placeholder('Şehir Seçiniz')
-                        ->disableLabel()
                         ->searchable()
                         ->required()
-                        ->lazy()
-                        ->options(fn() => City::activeCities()->pluck('name', 'id')),
+                        ->reactive()
+                        ->reactive()
+                        ->default(null)
+                        ->options(fn() => City::activeCities()->pluck('name', 'id'))
+                        ->afterStateUpdated(function ($set) {
+                            $set('district', null);
+                            $set('neighbourhood', null);
+                        }),
                     Select::make('district')
                         ->placeholder('İlçe Seçiniz')
                         ->disableLabel()
                         ->searchable()
+                        ->preload()
                         ->required()
-                        ->lazy()
-                        ->options(fn(callable $get) => District::where('city_id', $get('city'))->pluck('name', 'id')),
+                        ->reactive()
+                        ->default(null)
+                        ->options(fn(callable $get) => District::where('city_id', $get('city'))->pluck('name', 'id'))
+                        ->afterStateUpdated(fn($set) => $set('neighbourhood', null)),
                     Select::make('neighbourhood')
                         ->placeholder('Mahalle Seçiniz')
                         ->disableLabel()
                         ->searchable()
+                        ->preload()
                         ->required()
+                        ->default(null)
                         ->options(fn(callable $get) => Neighborhood::whereRelation('street', 'district_id', $get('district'))->pluck('name', 'id') ?? []),
                     TextInput::make('street')
                         ->placeholder('Sokak')
