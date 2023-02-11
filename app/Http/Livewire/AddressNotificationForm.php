@@ -49,7 +49,6 @@ class AddressNotificationForm extends Component implements HasForms
                         ->searchable()
                         ->required()
                         ->reactive()
-                        ->reactive()
                         ->default(null)
                         ->options(fn() => City::activeCities()->pluck('name', 'id'))
                         ->afterStateUpdated(function ($set) {
