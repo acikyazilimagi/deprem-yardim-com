@@ -33,6 +33,10 @@ return [
 
     'cloudflare' => [
         'key' => env('CF_API_KEY')
-    ]
+    ],
+
+    'api' => [
+        'keys' => env('API_KEYS')
+    ],
 
 ];
