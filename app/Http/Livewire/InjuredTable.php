@@ -175,6 +175,6 @@ class InjuredTable extends Component implements HasTable
 
     protected function getTableRecordsPerPage(): int
     {
-        return min((int) $this->tableRecordsPerPage, 100);
+        return max(min((int) $this->tableRecordsPerPage, 100), 10);
     }
 }
