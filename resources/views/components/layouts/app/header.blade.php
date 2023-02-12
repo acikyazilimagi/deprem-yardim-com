@@ -43,7 +43,7 @@
                                 <div class="image h-8">
                                     <img src="{{ asset('images/brand/yakinimibul.png') }}" alt="" class="w-full h-full object-contain object-center">
                                 </div>
-                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal text-sm">yakinimibul.com</div>
+                                <div class="text group-hover/link:text-red-500 duration-500 leading-tight font-normal text-sm">yakinimibul.net</div>
                             </a>
                         </li>
                     </ul>
