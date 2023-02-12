@@ -37,11 +37,11 @@
                     </li>
                     <div class="split w-full h-[1px] flex bg-white"></div>
                     <li class="flex items-center justify-center">
-                        <a href="https://afetharita.com/" target="_blank" class="group/link flex items-center space-x-3">
+                        <a href="https://yakinimibul.net/" target="_blank" class="group/link flex items-center space-x-3">
                             <div class="image h-8">
                                 <img src="{{ asset('images/brand/yakinimibul.png') }}" alt="" class="w-full h-full object-contain object-center">
                             </div>
-                            <div class="text group-hover/link:text-red-500 duration-500 font-normal">yakinimibul.com</div>
+                            <div class="text group-hover/link:text-red-500 duration-500 font-normal">yakinimibul.net</div>
                         </a>
                     </li>
                 </ul>
