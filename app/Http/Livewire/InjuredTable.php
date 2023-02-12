@@ -172,4 +172,9 @@ class InjuredTable extends Component implements HasTable
     {
         return view('livewire.injured-table');
     }
+
+    protected function getTableRecordsPerPage(): int
+    {
+        return max(min((int) $this->tableRecordsPerPage, 100), 10);
+    }
 }
