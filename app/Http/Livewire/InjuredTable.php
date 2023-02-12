@@ -8,6 +8,7 @@ use Filament\Forms\Components\Select;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
@@ -171,5 +172,10 @@ class InjuredTable extends Component implements HasTable
     public function render()
     {
         return view('livewire.injured-table');
+    }
+
+    protected function getTableRecordsPerPage(): int
+    {
+        return min((int) $this->tableRecordsPerPage, 100);
     }
 }
