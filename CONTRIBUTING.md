@@ -2,7 +2,7 @@
 
 [For English](CONTRIBUTING_ENG.md)
 
-## Katkı yapmadan önce dikkat edilmesi gerekenler
+## Katkı Yapmadan Önce Dikkat Edilmesi Gerekenler
 
 - İlgilendiğiniz konunun daha önce herhangi bir issue tarafından işlenilmediğine ve başkası tarafından yapılmadığından emin olun.
 - Eğer bir problemle karşılaşırsanız, issue açın.
@@ -11,9 +11,62 @@
 - Bir hatayı düzeltmek için PR açın.
 - Dökümantasyondaki bir hatayı düzeltmek için PR açın.
 
-## Başlamadan önce
+## Başlamadan Önce
 
-### Projeyi kurmak
+### Projeyi Docker İçinde Kurmak
+
+Bu proje [Laravel Sail](https://laravel.com/docs/9.x/sail) kullanmaktadır. Eğer MacOS, Linux veya Windows(WSL2) kullanıyorsanız, geliştirmeye başlamak için bilgisayarınızda yalnızca [Docker](https://docs.docker.com/get-docker/) kurulu olması yeterli.
+
+```bash
+# Projeyi klonlayın.
+git clone https://github.com/acikkaynak/deprem-yardim-com.git
+
+# Proje dizinine girin.
+cd deprem-yardim-com
+
+# Env dosyasını kopyalayın.
+cp .env.example .env
+
+# Sail'in çalışabilmesi için composer paketlerinin kurulmuş olması gerekiyor.
+# Ana makinede PHP veya Composer'a gerek olmadan paketleri Docker içinde kurabilirsiniz.
+# Docker yardımı ile composer paketlerini kurun.
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+    
+# Geliştirme ortamını başlatın.
+./vendor/bin/sail up -d
+
+# Laravel için bir "Application Key" oluşturun.
+./vendor/bin/sail artisan key:generate
+
+# Database setup'ı için Migration çalıştırın.
+./vendor/bin/sail artisan migrate
+```
+#### Opsiyonel: Sail Komutu için Kısayol
+```./vendor/bin/sail``` komutunu kısaltarak ```sail``` şeklinde kullanmak için:
+Shell ayar dosyanıza (~/.zshrc veya ~/.bashrc) aşağıdaki satırı ekleyebilirsiniz.
+```bash
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+```
+Ekledikten sonra shell'i yeniden başlatın.
+### Örnek Veriler
+Projeyi geliştirirken kullanacağınız veritabanı yedeklerini Discord sunucusundaki #depremyardimcom kanalından temin edebilirsiniz.
+Gerekli yedeği ```/dump/locations.sql``` şeklinde konumlandırdıktan sonra:
+```bash
+# Veri tabanına işlemek için
+./vendor/bin/sail artisan db:seed
+```
+### Geliştirme Sonunda
+```bash
+# Geliştirme ortamını sonlandırmak için:
+./vendor/bin/sail down
+```
+### Projeyi Windows İçinde Kurmak
+Eğer WSL2 kullanmadan direkt Windows üzerine kurulum yapmak istiyorsanız bu adımları takip edin.
 
 Gereksinimler:
 
@@ -33,8 +86,7 @@ composer install
 # Geliştirme ortamını başlatın
 php artisan serve
 ```
-
-### Commit mesajları
+### Commit Mesajları
 
 Her commit mesajı bir **başlık**, bir **gövde** ve bir **altbilgi** içerir. Başlık, **tip**, bir **kapsam** ve bir **açıklama** içeren bir özel biçimde biçimlendirilir:
 

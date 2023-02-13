@@ -2,7 +2,7 @@
 
 [Türkçe](CONTRIBUTING.md)
 
-## Things to note before contributing
+## Things To Note Before Contributing
 
 - Make sure that the contribution you seek to make is not the iteration of a former issue or hasn't been done by anyone else.
 - If you face with a problem, open up an issue for it.
@@ -11,9 +11,61 @@
 - Create a PR to fix an issue.
 - Create a PR to fix an error in the documentation.
 
-## Before you begin
+## Getting Started
 
-### Setting up the project
+### Setting Up The Project In Docker
+
+This project is using [Laravel Sail](https://laravel.com/docs/9.x/sail). So if you are using MacOS, Linux or Windows(WSL2); your only need is [Docker](https://docs.docker.com/get-docker/) to start development.
+
+```bash
+# Clone the project.
+git clone https://github.com/acikkaynak/deprem-yardim-com.git
+
+# Change directory to project directory.
+cd deprem-yardim-com
+
+# Copy env file.
+cp .env.example .env
+
+# Laravel Sail is a composer dependency. Therefore, you should install it first.
+# You don't need PHP or Composer to install dependencies; use docker.
+# Install Composer Dependencies with Docker command.
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+    
+# Start development environment.
+./vendor/bin/sail up -d
+
+# Generate an "Application Key" for Laravel.
+./vendor/bin/sail artisan key:generate
+
+# Run Laravel Migrations.
+./vendor/bin/sail artisan migrate
+```
+#### Optional: Alias for Sail Command
+You can use ```sail``` instead ```./vendor/bin/sail``` by adding the line bellow to your shell configuration (~/.zshrc or ~/.bashrc).
+```bash
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+```
+Restart shell after adding.
+### Sample Data
+You can get the sample data from #depremyardimcom in the Discord server.
+Store the dump file as ```/dump/locations.sql``` and:
+```bash
+# Proccess the dump file
+./vendor/bin/sail artisan db:seed
+```
+### After Development
+```bash
+# Stop development environment.
+./vendor/bin/sail down
+```
+### Setting Up The Project In Windows
+If you want to install directly on Windows without using WSL2, follow these steps.
 
 Requirements:
 
@@ -33,12 +85,11 @@ composer install
 # Run the development environment
 php artisan serve
 ```
-
-### Formatting the code
+### Formatting The Code
 
 We use [`prettier`](https://prettier.io/) on this project for code formatting. Linter configuration can be found [here](https://github.com/acikkaynak/deprem-yardim-frontend/blob/main/.prettierrc).
 
-### Commit messages
+### Commit Messages
 
 Each commit must include a **header**, a **body** and a **footer**. Title is formatted as **type**, **scope** and, **description**.
 
@@ -52,7 +103,7 @@ Each commit must include a **header**, a **body** and a **footer**. Title is for
 
 Commit messages should not exceed 72 characters.
 
-### Message header
+### Message Header
 
 Message header is mandatory and it must include a type, an optional scope and a short description. Ideally, it should not exceed 50 characters.
 
