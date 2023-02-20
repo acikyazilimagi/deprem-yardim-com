@@ -142,7 +142,6 @@ class AddressNotificationForm extends Component implements HasForms
             ]);
             return;
         }
-
         $insert = Injured::create([
             'city' => City::find(data_get($this->data, 'city'), 'name')->name,
             'district' => District::find(data_get($this->data, 'district'), 'name')->name,
@@ -178,5 +177,11 @@ class AddressNotificationForm extends Component implements HasForms
     public function clearForm()
     {
         $this->reset();
+    }
+protected function getRateLimitKey($method)
+    {
+        if (! $method) $method = debug_backtrace()[1]['function'];
+
+        return sha1(static::class.'|'.$method.'|'.request()->header('True-Client-IP'));
     }
 }

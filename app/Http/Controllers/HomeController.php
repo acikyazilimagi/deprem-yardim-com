@@ -11,7 +11,8 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $pageViews = rescue(fn () => Cache::remember('cf_page_views', now()->addHour(), fn () => $this->getCloudflareAnalytics()), 0) ?? 0;
+	info(request()->headers);
+        $pageViews = 0; //rescue(fn () => Cache::remember('cf_page_views', now()->addHour(), fn () => $this->getCloudflareAnalytics()), 0) ?? 0;
 
         $injuredCities = Injured::select('city', DB::raw('count(*) as total'))
             ->activeCities()
