@@ -71,7 +71,7 @@
                     {!! $isRequired() ? 'required' : null !!}
                 @endif
                 {{ $getExtraInputAttributeBag()->class([
-                    'w-full bg-transparent placeholder-primary-500 h-[60px] sm:h-12 text-primary-500 border-gray-300 hover:border-primary-500 rounded-full ring-offset-0 !shadow-none hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 focus:ring-transparent focus:!ring-0 focus:!outline-0 duration-500 group-[.error]/input:!border-red-500 group-[.success]/input:!border-green-500',
+                    'w-full bg-transparent placeholder-primary-300 h-[60px] sm:h-12 text-primary-500 border-gray-300 hover:border-primary-500 rounded-full ring-offset-0 !shadow-none hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 focus:ring-transparent focus:!ring-0 focus:!outline-0 duration-500 group-[.error]/input:!border-red-500 group-[.success]/input:!border-green-500',
                     'dark:bg-gray-700 dark:text-white dark:focus:border-primary-500' => config('forms.dark_mode'),
                 ]) }}
                 x-bind:class="{

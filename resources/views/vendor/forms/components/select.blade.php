@@ -47,7 +47,7 @@
                         {!! $isRequired() ? 'required' : null !!}
                     @endif
                     {{ $attributes->merge($getExtraInputAttributes())->merge($getExtraAttributes())->class([
-                        'w-full bg-transparent placeholder-primary-500 h-[60px] sm:h-12 text-primary-500 rounded-full ring-offset-0 !shadow-none hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 duration-500 focus:ring-transparent focus:!ring-0 focus:!outline-0',
+                        'w-full bg-transparent placeholder-primary-300 h-[60px] sm:h-12 text-primary-500 rounded-full ring-offset-0 !shadow-none hover:border-primary-500  focus:border-primary-500 focus:text-primary-800 duration-500 focus:ring-transparent focus:!ring-0 focus:!outline-0',
                         'border-primary-500' => ! $errors->has($getStatePath()),
                         'border-red-500' => $errors->has($getStatePath()),
                     ]) }}
