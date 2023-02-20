@@ -14,6 +14,24 @@ class InjuredController extends Controller
             filled(request()->get('text')),
             fn($query) => $query->whereFullText('address', request()->get('text'))
         )
+            ->select([
+                'id',
+                'city',
+                'district',
+                'street as neighbourhood',
+                'fullname',
+                'street2 as street',
+                'apartment as apartment_name',
+                'apartment_no',
+                'apartment_floor',
+                'source',
+                'phone',
+                'address as request',
+                'maps_link',
+                'ip_address',
+                'created_at',
+                'updated_at',
+            ])
             ->paginate(2000)
             ->toArray();
 

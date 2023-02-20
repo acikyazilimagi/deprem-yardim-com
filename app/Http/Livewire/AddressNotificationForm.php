@@ -79,11 +79,7 @@ class AddressNotificationForm extends Component implements HasForms
                         ->disableLabel()
                         ->required(),
                     TextInput::make('apartment')
-                        ->placeholder('Apartman')
-                        ->disableLabel()
-                        ->required(),
-                    TextInput::make('source')
-                        ->placeholder('Bilgi Kaynağı')
+                        ->placeholder('Apartman Adı')
                         ->disableLabel()
                         ->required(),
                     TextInput::make('apartment_no')
@@ -92,6 +88,11 @@ class AddressNotificationForm extends Component implements HasForms
                     TextInput::make('apartment_floor')
                         ->placeholder('Apartman Kat')
                         ->disableLabel(),
+                    TextInput::make('source')
+                        ->placeholder('Bilgi Kaynağı')
+                        ->disableLabel()
+                        ->required()
+                        ->columnSpanFull(),
                     TextInput::make('full_name')
                         ->placeholder('Ad Soyad')
                         ->disableLabel(),
@@ -99,9 +100,19 @@ class AddressNotificationForm extends Component implements HasForms
                         ->placeholder('Telefon Numarası')
                         ->disableLabel(),
                     Textarea::make('address')
-                        ->placeholder('Adres Tarifi')
+                        ->placeholder('Talep/Yardım Açıklaması')
                         ->disableLabel()
                         ->columnSpanFull(),
+
+//                    Select::make('source_type')
+//                        ->placeholder('Bilgi Kaynağı')
+//                        ->disableLabel()
+//                        ->required()
+//                        ->options(['Sosyal Medya', 'Tanıdık/Duyum', 'Kendisi']),
+//                    TextInput::make('source')
+//                        ->placeholder('Bilgi Kaynağı')
+//                        ->disableLabel()
+//                        ->afterStateUpdated(static function ($set) { dump($set); }),
                     Checkbox::make('gdpr')
                         ->columnSpanFull()
                         ->accepted()
