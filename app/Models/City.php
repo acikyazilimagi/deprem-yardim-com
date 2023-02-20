@@ -11,6 +11,8 @@ class City extends Model
 {
     use HasFactory;
 
+    public const DEFAULT_SELECTED = 37;
+
     public $timestamps = false;
 
     public function districts()
