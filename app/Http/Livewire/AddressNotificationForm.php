@@ -153,6 +153,12 @@ class AddressNotificationForm extends Component implements HasForms
             ]);
             return;
         }
+
+        $realIp = request()->header('True-Client-IP');
+        if (empty($realIp)) {
+            $realIp = request()->ip();
+        }
+
         $insert = Injured::create([
             'city' => City::find(data_get($this->data, 'city'), 'name')->name,
             'district' => District::find(data_get($this->data, 'district'), 'name')->name,
@@ -165,7 +171,7 @@ class AddressNotificationForm extends Component implements HasForms
             'address' => data_get($this->data, 'address'),
             'fullname' => data_get($this->data, 'full_name'),
             'source' => data_get($this->data, 'source'),
-            'ip_address' => request()->ip()
+            'ip_address' => $realIp,
         ]);
 
         if ($insert) {
